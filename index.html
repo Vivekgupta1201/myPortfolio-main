@@ -340,39 +340,33 @@
                 </div>
               </div>
             </div>
-            <div class="column right">
+              <div class="column right">
               <div class="text">Message me</div>
-              <form id="messageForm" action="javascript:void(0);" method="POST">
-                  <div class="fields">
-                      <div class="field name">
-                          <label for="name">Name:</label>
-                          <input type="text" id="name" name="name" placeholder="Your Name" required>
-                      </div>
-                      <br>
-                      <div class="field email">
-                          <label for="email">Email:</label>
-                          <input type="email" id="email" name="email"  placeholder="Your Email"required>
-                      </div>
-                     
-                  </div>
-                  <br>
-                  <div class="field subject">
-                      <label for="subject">Subject:</label>
-                      <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                  </div>
-                  <br>
-                  <div class="field textarea">
-                      <label for="message">Message:</label>
-                      <textarea id="message" name="message" rows="4" cols="50" required placeholder="Your Message"></textarea>
-                  </div>
-                  <br>
-                  <div class="button-area">
-                      <button type="submit">Send message</button>
-                  </div>
-              </form>
-              <div id="successMessage" style="display: none;">Message sent successfully!</div>
+              <form  action="https://api.web3forms.com/submit" method="POST">
+                <input type="hidden" name="access_key" value="e300b8a9-2ff2-45f7-a112-f7ad7f414d84">
+                <div class="fields">
+              <div  class="field name">
+             <label for="name">Name:</label>
+             <input type="text" id="name" name="name" required><br><br>
+              </div>
+              <div class="field email">
+                <label for="email">Email:</label>
+                  <input type="email" id="email" name="email" required><br><br>
+                 </div>
             </div>
-            
+            <br>
+                 <div class="field">
+                  <label for="subject">Subject:</label>
+                    <input type="text" id="subject" name="subject" required><br><br>
+                   </div>
+                   <br>
+        <div class="field textarea">
+        <label for="message">Message:</label><br>
+        <textarea id="message" name="message" rows="4" cols="50" required></textarea><br><br>
+      
+      <div class="button-area">
+        <button type="submit" value="Submit">Send message</button>
+      </div>
           
       </section>
 
@@ -387,41 +381,7 @@
 <script src='https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js'></script>
 <script src='https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js'></script>
       <script src='https://kit.fontawesome.com/3b57a2a2a7.js'></script>
-      <script>
-        document.getElementById("messageForm").addEventListener("submit", function(event) {
-            event.preventDefault(); // Prevent the form from submitting normally
-            
-            // Get form data
-            var formData = new FormData(this);
-            
-            // Send form data asynchronously using fetch
-            fetch("https://formsubmit.co/6284cae56e87d06cb5c6e9820d52b363", {
-                method: "POST",
-                body: formData
-            })
-            .then(response => {
-                if (response.ok) {
-                    // If the response is successful, display success message
-                    document.getElementById("successMessage").style.display = "block";
-                    // Clear form fields
-                    document.getElementById("name").value = "";
-                    document.getElementById("email").value = "";
-                    document.getElementById("subject").value = "";
-                    document.getElementById("message").value = "";
-                    setTimeout(function() {
-                          document.getElementById("successMessage").style.display = "none";
-                      }, 10000)
-                } else {
-                    // If the response is not successful, display an error message
-                    alert("Error: Message not sent. Please try again later.");
-                }
-            })
-            .catch(error => {
-                console.error("Error:", error);
-                alert("Error: Message not sent. Please try again later.");
-            });
-        });
-      </script>
+     
 
     <script src="Typed.js"></script>
   </body>
